@@ -14,3 +14,7 @@ newBase = baseController.baseController()
 @app.route('/')
 def index():
     return newBase.index()
+
+@app.route('/show')
+def show():
+    return '我想要一个小姐姐'
