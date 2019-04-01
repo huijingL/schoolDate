@@ -15,7 +15,9 @@ class baseController():
     def saveData(self,model,query):
         print(model,query)
         # 动态的导入模块
-        data = importlib.import_module('app.model.'+model)
+        module = importlib.import_module('app.model.'+model)
         # 动态的加载模块内部的方法
-        getattr(data, model)(username=query['username'],password=query['password']).save()
+        getattr(module, model)(username=query['username'],password=query['password']).save()
         # data.sys_user(username=query['username'],password=query['password']).save()
+        data  = {'error': 0}
+        return jsonify(data)

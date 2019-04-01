@@ -21,10 +21,15 @@ def index():
 @app.route('/show')
 def show():
     return '我想要一个小姐姐'
-#  拿到的数据需要传到方法里面，才能被使用
 
-@app.route('/api/v1/schema/<model>/')
+
+
+@app.route('/api/v1/schema/<model>/',methods=['POST'])
 def show_model(model):
-    # print(model,request.args.to_dict())
-    newBase.saveData(model,request.args.to_dict())
-    return '我想要一个小姐姐，她最好是个大长腿'
+    #  拿到的数据需要传到方法里面，才能被使用
+    # print(model,request.values)
+    # print(request.values.to_dict())
+    # 获取所有参数
+    # request.args 是一个元祖列表， get 的数据从这里获取
+    # request.value 获得post 数据 ，
+    return newBase.saveData(model,request.values.to_dict())

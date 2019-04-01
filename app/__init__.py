@@ -9,7 +9,7 @@ CORS(app,resources=r'/*') # 解决跨域问题，这里的解释是允许所有�
 app.config['DEBUG'] = True
 app.config['SEND_FILE_MAX_AGE_DEFAULT'] =timedelta(seconds=1)
 
-# app.config['MONGOALCHEMY_SERVER'] = 'mongodb://localhost'
+app.config['MONGOALCHEMY_SERVER'] = 'localhost'
 app.config['MONGOALCHEMY_DATABASE'] = 'myFlask'
 db = MongoAlchemy(app)
 
