@@ -8,12 +8,12 @@ from app import app,request
 
 
 from app.controller import * # 这里导入所有的模块，被vscode 坑了一把 ，垃圾编辑器
-newBase = baseController.baseController()
+baseController = baseController.baseController()
 
 
 @app.route('/')
 def index():
-    return newBase.index()
+    return baseController.index()
 
 
 # 通过<> 拿到参数， 类似于 node 的 : , 拿到的是params
@@ -32,4 +32,4 @@ def show_model(model):
     # 获取所有参数
     # request.args 是一个元祖列表， get 的数据从这里获取
     # request.value 获得post 数据 ，
-    return newBase.saveData(model,request.values.to_dict())
+    return baseController.saveData(model,request.values.to_dict())
